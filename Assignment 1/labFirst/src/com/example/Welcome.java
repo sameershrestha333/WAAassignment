@@ -36,19 +36,25 @@ public class Welcome extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		
+		//get input data
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
+		
+		//creating User object
 		User user=new User(username,password);
 		
-		
+		//authetication
 		if(user.getUser_name().equals("admin")&& user.getPassword().equals("test123")){
 			
-			
-			request.getSession().setAttribute("user_name", username);
-			response.sendRedirect("welcome.jsp");
+			//add user object to Request object-used to hold on to values throughout life of request only
+			request.setAttribute("user", user);
+			//go to welcome page
+			RequestDispatcher view=getServletContext().getRequestDispatcher("/welcome.jsp");
+			view.forward(request, response);
 		}
 		else{
-			
+			//display message.
 			request.setAttribute("msg", "Username and/or password incorrect.");
 			RequestDispatcher view=getServletContext().getRequestDispatcher("/login.jsp");
 			view.forward(request, response);

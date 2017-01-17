@@ -3,6 +3,8 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,9 +41,8 @@ public class UserController {
 		user.setUser_name(username);
 		user.setPassword(password);
 		if(userService.authenticate(user.getUser_name(), user.getPassword())){
-			System.out.println("888888888888888888888888888888888888888888888888888888");
 
-		model.addAttribute("user_name",username);	
+		model.addAttribute("user",user);	
 		return "welcome";
 		}
 		else{
@@ -49,5 +50,7 @@ public class UserController {
 			return "login";
 		}
 	}
+	
+	
 
 }

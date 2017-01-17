@@ -7,6 +7,6 @@
 <title>Welcome</title>
 </head>
 <body>
-Welcome ${user_name}
+Welcome ${user.user_name}
 </body>
 </html>
