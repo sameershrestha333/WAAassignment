@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Welcome
@@ -41,15 +42,25 @@ public class Welcome extends HttpServlet {
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");
 		
+		//creating session
+		HttpSession session=request.getSession();
+		
 		//creating User object
 		User user=new User(username,password);
 		
 		//authetication
 		if(user.getUser_name().equals("admin")&& user.getPassword().equals("test123")){
 			
+			//add user object to Session object-used to hold on to values throughout life of session only
+			session.setAttribute("user", user);
+			
+			
 			//add user object to Request object-used to hold on to values throughout life of request only
-			request.setAttribute("user", user);
-			//go to welcome page
+			//	request.setAttribute("user", user);
+			
+			
+			//go to welcome page		
+			
 			RequestDispatcher view=getServletContext().getRequestDispatcher("/welcome.jsp");
 			view.forward(request, response);
 		}
