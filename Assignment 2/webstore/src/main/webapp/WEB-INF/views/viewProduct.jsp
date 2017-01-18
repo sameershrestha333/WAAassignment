@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
 <!DOCTYPE html>
@@ -66,48 +66,45 @@
 				</ul>
 			</nav>
 		</div>
-			<hr>
-	
-		<div class="table-responsive">
-			 <table id="table1" class="table table-bordered table-hover table-striped">
-				<thead>
-					<tr class="bg-info">
-						<th>Id</th>
-						<th>Name</th>
-						<th>Price $</th>
-						<th>Description</th>
-						<th>Manufacture</th>
-						<th>Condition</th>
-						<!--                  <th>Unit in Order</th>
- -->
-						<th>Unit in Stock</th>
-						<th></th>
-					</tr>
+		<hr>
 
-				</thead>
-				<tbody>
 
-					<c:forEach items="${products}" var="product">
-						<tr>
-							<td>${ product.productId}</td>
+		<div class="container">
 
-							<td>${ product.name}</td>
-							<td>${ product.unitPrice}</td>
-							<td>${ product.description}</td>
-							<td>${ product.manufacturer}</td>
-							<td>${ product.condition}</td>
-							<%-- 					    <td>${ product.unitsInOrder}</td>
- --%>
-							<td>${ product.unitsInStock}</td>
-                    <td><a href="<spring:url value="viewProduct/${product.productId}"/>"> <span
-                            class="glyphicon glyphicon-info-sign"></span> </a></td>
-						</tr>
-					</c:forEach>
+			<div class="row">
+				
+				<div class="col-md-5">
+					<h3>${product.name}</h3>
+					<p>${product.description}</p>
+					<p>
+						<strong>Manufacturer : </strong>${product.manufacturer}
 
-				</tbody>
-			</table>
+					</p>
+					<p>
+						<strong>Category :</strong> ${product.category}
+					</p>
+					<p>
+						<strong>Condition :</strong> ${product.condition}
+					</p>
+					<p>
+						<strong>Units in Stock :</strong> ${product.unitsInStock}
+					</p>
+					
+					
+					<h4>${product.unitPrice} USD</h4>
+
+					<br>		
+
+					<a href="/webstore/products" class="btn btn-default">Back</a>
+
+				</div>
+
+			</div>
+
 
 		</div>
+
+
 		<!-- Site footer -->
 		<footer class="footer">
 			<p>&copy; 2016 Company, Inc.</p>
@@ -120,13 +117,14 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-		<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-		
-		<!--data table-->
-    <script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap.min.js"></script>
-		
+	<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+
+	<!--data table-->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap.min.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			$('#table1').DataTable();

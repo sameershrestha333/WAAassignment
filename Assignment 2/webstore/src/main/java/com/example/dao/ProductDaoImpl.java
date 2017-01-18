@@ -63,7 +63,7 @@ public class ProductDaoImpl implements Productdao {
 		watch.setProductId("104");
 		watch.setName("Omega Z4");
 		watch.setUnitPrice(new BigDecimal(750));
-		watch.setDescription("Itian Design");
+		watch.setDescription("Italian Design");
 		watch.setManufacturer("Omega");
 		watch.setCategory("Labtop");
 		watch.setUnitsInStock(50);
