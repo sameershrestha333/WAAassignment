@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <meta name="description" content="">
 <meta name="author" content="">

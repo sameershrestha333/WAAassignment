@@ -54,19 +54,23 @@ public class UserController {
 			if ("1".equals(request.getParameter("remember"))) {
 				Cookie c = new Cookie("cookieName", user.getUser_name());
 				c.setMaxAge(2 * 30 * 24 * 60 * 60); // two months
-
 				response.addCookie(c);
 
 				Cookie c2 = new Cookie("cookiePassword", user.getPassword());
 				c2.setMaxAge(2 * 30 * 24 * 60 * 60); // two months
-				response.addCookie(c2);
-				
+				response.addCookie(c2);			
 
-								// response.addCookie(new Cookie("cookieName",
-				// user.getUser_name()));
-				// response.addCookie(new Cookie("cookiePassword",
-				// user.getPassword()));
+							
 
+			}
+			else{
+				Cookie c = new Cookie("cookieName", user.getUser_name());
+				c.setMaxAge(0); //
+				response.addCookie(c);
+
+				Cookie c2 = new Cookie("cookiePassword", user.getPassword());
+				c2.setMaxAge(0); // 
+				response.addCookie(c2);		
 			}
 
 			session.setAttribute("user", user);
