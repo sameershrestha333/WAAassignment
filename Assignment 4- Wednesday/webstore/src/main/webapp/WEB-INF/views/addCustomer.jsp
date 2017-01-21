@@ -85,7 +85,7 @@
 
 
 			<div class="form-group">
-				<label for="address">Address</label>
+				<label for="address"><spring:message code="address" /></label>
 
 				<div class="alert alert-warning fade in">
 					<form:errors path="address" />

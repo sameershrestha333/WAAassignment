@@ -42,11 +42,21 @@
 	</bean>
 
 	<!-- Configures Handler Interceptors -->
-	<mvc:interceptors>
+	 <mvc:interceptors>
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+		
+ 	</mvc:interceptors> 	
+ 	
+ 	<!-- <mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="locale"></property>
+		</bean>
 	</mvc:interceptors>
+ 	 -->
 	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" >
+			<property name="defaultLocale" value="en"></property>
+		</bean>
 
 
 
