@@ -2,7 +2,7 @@ package com.example.model;
 
 import java.util.Date;
 
-import javax.validation.constraints.Past;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -19,9 +19,9 @@ public class CustomerForm {
 	@NotEmpty(message = "{emptyField}")
 	public String address;
 
-	@NotEmpty(message = "{emptyField}")
+	@NotNull(message = "{emptyField}")
 	//@DateTimeFormat(pattern="dd-MM-yyyy")
-	@Past(message = "{invalidDOB}")
+	//@Past(message = "{invalidDOB}")
 	public Date birthdate;
 
 	@NotEmpty(message = "{emptyField}")
@@ -55,6 +55,8 @@ public class CustomerForm {
 	public Date getBirthdate() {
 		return birthdate;
 	}
+
+	
 
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;

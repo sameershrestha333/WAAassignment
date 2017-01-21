@@ -1,7 +1,9 @@
 package com.example.controller;
 
-import java.text.ParseException;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -25,10 +27,12 @@ public class CustomerFormController {
 
 	@RequestMapping(value = "/customerForm", method = RequestMethod.POST)
 	public String customerFormPOST( @Valid CustomerForm customerForm,BindingResult result) {
-		//System.out.println(birthdate);
-		/*SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+		/*System.out.println(birthdate);
+		
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
 		Date d1=format.parse(birthdate);
 		customerForm.setBirthdate(d1);*/
+		System.out.println(customerForm);
 		
 		if(result.hasErrors()){
 			

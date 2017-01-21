@@ -100,7 +100,7 @@
 				<div class="alert alert-warning fade in">
 					<form:errors path="birthdate" />
 				</div>
-				<form:input path="birthdate" placeholder="birthdate" id="birthdate"
+				<form:input type="datetime-local" path="birthdate" placeholder="birthdate" id="birthdate"
 					class="form-control" />
 			</div>
 
