@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean authenticate(User user) {
 		
-		if(user.getUser_name().equals("a")&&user.getPassword().equals("a"))
+		if(user.getUser_name().equals("admin")&&user.getPassword().equals("test123"))
 		{
 			return true;
 		}
