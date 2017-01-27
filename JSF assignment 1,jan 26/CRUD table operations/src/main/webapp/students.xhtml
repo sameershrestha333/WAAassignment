@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+
+
+	<h:outputStylesheet library="css" name="main.css" />
+
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="justified-nav.css" />
+	<title>Add Student Form</title>
+
+</h:head>
+<h:body>
+	<h2>Add Student Form</h2>
+
+
+	<div class="container">
+		<h2>Student List</h2>
+		<div class="table-responsive">
+			<h:form>
+				<h:dataTable id="table1" value="#{test.students}" var="student"
+					class="table table-bordered table-hover table-striped">
+					<h:column>
+						<f:facet name="header">Roll </f:facet>
+						<h:inputText value="#{student.roll}"
+							rendered="#{student.editable}" />
+
+						<h:outputText value="#{student.roll}"
+							rendered="#{!student.editable}" />
+
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Name </f:facet>
+						<h:inputText value="#{student.name}"
+							rendered="#{student.editable}" />
+
+						<h:outputText value="#{student.name}"
+							rendered="#{!student.editable}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Class </f:facet>
+						<h:inputText value="#{student.grade}"
+							rendered="#{student.editable}" />
+
+						<h:outputText value="#{student.grade}"
+							rendered="#{!student.editable}" />
+					</h:column>
+
+
+					<h:column>
+						<f:facet name="header">Edit</f:facet>
+						<h:commandButton value="Edit" action="#{test.editStudent}"
+							rendered="#{!student.editable}">
+							<f:setPropertyActionListener target="#{test.student}"
+								value="#{student}" />
+						</h:commandButton>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header"></f:facet>
+						<h:commandButton value="Delete" action="#{test.deleteStudent}">
+							<f:setPropertyActionListener target="#{test.student}"
+								value="#{student}" />
+						</h:commandButton>
+					</h:column> 		</h:dataTable>
+
+				<h:commandButton class="btn btn-default" value="Save"
+					action="#{test.saveStudents}" />
+
+			</h:form>
+		</div>
+		
+		
+		
+		<h:link value="Add Product" class="btn btn-default"
+			outcome="add-student" />
+
+	</div>
+
+</h:body>
+</html>
