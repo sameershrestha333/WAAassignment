@@ -1,5 +1,7 @@
 package store;
 
+import java.util.Date;
+
 public class Student {
 
 	private int roll;
@@ -7,10 +9,38 @@ public class Student {
 	private int grade;
 	private boolean editable;
 
-	public Student(int roll, String name, int grade) {
+	private double amount;
+	private String creditCard;
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getCreditCard() {
+		return creditCard;
+	}
+
+	public void setCreditCard(String creditCard) {
+		this.creditCard = creditCard;
+	}
+
+	
+	public Student() {
+
+	}
+
+	public Student(int roll, String name, int grade, boolean editable, double amount, String creditCard) {
+		super();
 		this.roll = roll;
 		this.name = name;
 		this.grade = grade;
+		this.editable = editable;
+		this.amount = amount;
+		this.creditCard = creditCard;
 	}
 
 	public boolean isEditable() {

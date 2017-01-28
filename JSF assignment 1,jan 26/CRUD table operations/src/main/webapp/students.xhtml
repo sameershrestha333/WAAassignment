@@ -24,6 +24,8 @@
 			<h:form>
 				<h:dataTable id="table1" value="#{test.students}" var="student"
 					class="table table-bordered table-hover table-striped">
+
+
 					<h:column>
 						<f:facet name="header">Roll </f:facet>
 						<h:inputText value="#{student.roll}"
@@ -52,6 +54,24 @@
 							rendered="#{!student.editable}" />
 					</h:column>
 
+					<h:column>
+						<f:facet name="header">Amount </f:facet>
+						<h:inputText value="#{student.amount}"
+							rendered="#{student.editable}" />
+
+						<h:outputText value="#{student.amount}"
+							rendered="#{!student.editable}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Credit Card </f:facet>
+						<h:inputText value="#{student.creditCard}"
+							rendered="#{student.editable}" />
+
+						<h:outputText value="#{student.creditCard}"
+							rendered="#{!student.editable}" />
+					</h:column>
+
 
 					<h:column>
 						<f:facet name="header">Edit</f:facet>
@@ -68,18 +88,26 @@
 							<f:setPropertyActionListener target="#{test.student}"
 								value="#{student}" />
 						</h:commandButton>
-					</h:column> 		</h:dataTable>
+					</h:column>
+				</h:dataTable>
 
 				<h:commandButton class="btn btn-default" value="Save"
 					action="#{test.saveStudents}" />
 
+
+
+
 			</h:form>
 		</div>
-		
-		
-		
-		<h:link value="Add Product" class="btn btn-default"
+		<h:link value="Add Student" class="btn btn-default"
 			outcome="add-student" />
+		<!-- <h:button class="btn btn-default" value="Add Student"
+			action="#{test.showAddForm()}" /> -->
+
+		<!-- <h:button value="Add Stdent" class="btn btn-default" outcome="add-student"/> -->
+
+		<!-- 	<h:link value="Add Product" class="btn btn-default"
+			outcome="add-student" /> -->
 
 	</div>
 

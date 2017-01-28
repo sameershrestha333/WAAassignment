@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+
+
+	<h:outputStylesheet library="css" name="main.css" />
+
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="justified-nav.css" />
+
+</h:head>
+<h:body>
+
+	<div class="container">
+		<h:form class="form-horizontal">
+			<h2 class="form-signin-heading">Please fill the data in the form</h2>
+
+			<div class="form-group">
+				<label for="type" class="col-sm-2 control-label">Type</label>
+				<div class="col-sm-10">
+					<h:inputText id="type" required="true"
+						validatorMessage="must ends with at" value="#{animal.type}"
+						class="form-control">
+						<f:validateRegex pattern=".*at" />
+					</h:inputText>
+					<h:message for="type" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="weight" class="col-sm-2 control-label">Weight</label>
+				<div class="col-sm-10">
+					<h:inputText id="weight" converterMessage="Invalid weight"
+						value="#{animal.weight}" class="form-control">
+						<f:convertNumber pattern="00.00" />
+
+					</h:inputText>
+
+					<h:message for="weight" />
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="date" class="col-sm-2 control-label">Date</label>
+				<div class="col-sm-10">
+					<h:inputText id="date" converterMessage="Invalid date format"
+						value="#{animal.date}" class="form-control">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+					<h:message for="date" />
+
+				</div>
+			</div>
+
+			<!-- <div class="form-group">
+				<label for="totalNo" class="col-sm-2 control-label">Total
+					Num number</label>
+				<div class="col-sm-10">
+					<h:inputText id="totalNo"
+						converterMessage="Total number must be valid number and greater than 0."
+						value="#{animal.totalNo}" class="form-control" />
+					<h:message for="totalNo" />
+				</div>
+			</div> -->
+
+			<div class="form-group">
+				<label for="totalNo" class="col-sm-2 control-label">Total
+					Num number</label>
+				<div class="col-sm-10">
+					<h:inputText id="totalNo" validator="#{animal.validateAge}"
+						value="#{animal.totalNo}" class="form-control" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<h:commandButton value="Different Page"
+						class="btn btn-lg btn-success" />
+
+					<h:commandButton value="reset" type="reset"
+						class="btn btn-lg btn-default" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="dateout" class="col-sm-2 control-label">Date</label>
+				<div class="col-sm-10">
+					<h:outputText id="dateout" converterMessage="Invalid date format"
+						value="#{animal.date}">
+						<f:convertDateTime dateStyle="long" />
+					</h:outputText>
+					<h:message for="dateout" />
+
+				</div>
+			</div>
+		</h:form>
+
+	</div>
+
+
+</h:body>
+</html>
