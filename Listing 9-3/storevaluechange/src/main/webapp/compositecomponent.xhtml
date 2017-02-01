@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:jwe="http://java.sun.com/jsf/composite/javacc">
+
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="font-awesome.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="justified-nav.css" />
+
+</h:head>
+
+<h:body>
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+					<h1 class="title">Please log in</h1>
+					<hr />
+				</div>
+			</div>
+			<jwe:login nameLabel="UserName: " nameValue="#{usercc.userName}"
+				passwordLabel="Password: " passwordValue="#{usercc.password}"
+				loginButtonText="Login" loginButtonAction="#{usercc.login}" />
+		</div>
+	</div>
+</h:body>
+
+</html>

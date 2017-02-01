@@ -1,0 +1,105 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	
+		<h:outputStylesheet library="css" name="font-awesome.css" />
+	
+	
+	
+
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="justified-nav.css" />
+
+</h:head>
+<h:body>
+
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+					<h1 class="title">Please log in </h1>
+					<hr />
+				</div>
+			</div>
+			<div class="main-login main-center">
+
+
+				<composite:interface>
+					<composite:attribute name="nameLabel" />
+					<composite:attribute name="nameValue" />
+					<composite:attribute name="passwordLabel" />
+					<composite:attribute name="passwordValue" />
+					<composite:attribute name="loginButtonText" />
+					<composite:attribute name="loginButtonAction"
+						method-signature="java.lang.String action()" />
+				</composite:interface>
+				<composite:implementation>
+					<h:form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">
+								#{cc.attrs.nameLabel}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span>
+									<h:inputText class="form-control" id="name"
+										value="#{cc.attrs.nameValue}" placeholder="Enter your name" />
+									<span class="input-group-addon"><span
+										class="glyphicon glyphicon-envelope"></span> </span>
+								</div>
+							</div>
+						</div>
+
+
+
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">
+								#{cc.attrs.passwordLabel}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span>
+									<h:inputSecret class="form-control" id="password"
+										value="#{cc.attrs.passwordValue}"
+										placeholder="Enter your password" />
+									<span class="input-group-addon"><span
+										class="glyphicon glyphicon-envelope"></span> </span>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+						<div class="form-group ">
+							<h:commandButton
+								class="btn btn-primary btn-lg btn-block login-button"
+								action="#{cc.attrs.loginButtonAction}"
+								value="#{cc.attrs.loginButtonText}" />
+
+						</div>
+
+						<hr />
+
+
+					</h:form>
+				</composite:implementation>
+			</div>
+		</div>
+	</div>
+
+
+</h:body>
+</html>
