@@ -6,11 +6,11 @@
 <h:head>
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="bootstrap.css" />
-	
-		<h:outputStylesheet library="css" name="font-awesome.css" />
-	
-	
-	
+
+	<h:outputStylesheet library="css" name="font-awesome.css" />
+
+
+
 
 	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
 	<h:outputStylesheet library="css" name="signin.css" />
@@ -25,7 +25,7 @@
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-					<h1 class="title">Please log in </h1>
+					<h1 class="title">Please log in</h1>
 					<hr />
 				</div>
 			</div>
@@ -38,6 +38,7 @@
 					<composite:attribute name="passwordLabel" />
 					<composite:attribute name="passwordValue" />
 					<composite:attribute name="loginButtonText" />
+					<composite:attribute name="image" />
 					<composite:attribute name="loginButtonAction"
 						method-signature="java.lang.String action()" />
 				</composite:interface>
@@ -85,10 +86,15 @@
 
 						<div class="form-group ">
 							<h:commandButton
-								class="btn btn-primary btn-lg btn-block login-button"
+								class="btn btn-primary btn-lg login-button"
 								action="#{cc.attrs.loginButtonAction}"
 								value="#{cc.attrs.loginButtonText}" />
 
+							<h:commandLink class="btn btn-primary btn-lg slogin-button"
+								action="#{cc.attrs.loginButtonAction}">
+
+								<h:graphicImage url="#{cc.attrs.image}" styleClass="icon" />
+							</h:commandLink>
 						</div>
 
 						<hr />
