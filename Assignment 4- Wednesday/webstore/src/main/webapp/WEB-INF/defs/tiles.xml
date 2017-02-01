@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="common" template="/WEB-INF/layouts/classic.jsp">
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp" />
+	</definition>
+
+
+
+
+	<definition name="index" extends="common">
+		<put-attribute name="title" value="home page" />
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+
+
+	<definition name="products" extends="common">
+		<put-attribute name="title" value="Products" />
+		<put-attribute name="body" value="/WEB-INF/jsp/products.jsp" />
+	</definition>
+	
+	
+	<definition name="customer" extends="common">
+		<put-attribute name="title" value="Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer.jsp" />
+	</definition>
+	
+	<definition name="result" extends="common">
+		<put-attribute name="title" value="Result" />
+		<put-attribute name="body" value="/WEB-INF/jsp/result.jsp" />
+	</definition>
+	
+	
+	<definition name="addCustomer" extends="common">
+		<put-attribute name="title" value="Add Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/addCustomer.jsp" />
+	</definition>
+	
+	
+	<definition name="customer" extends="common">
+		<put-attribute name="title" value="Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer.jsp" />
+	</definition>
+	
+	
+	<definition name="addProduct" extends="common">
+		<put-attribute name="title" value="Add Product" />
+		<put-attribute name="body" value="/WEB-INF/jsp/addProduct.jsp" />
+	</definition>
+	
+	
+	<definition name="updateProduct" extends="common">
+		<put-attribute name="title" value="Update Product" />
+		<put-attribute name="body" value="/WEB-INF/jsp/updateProduct.jsp" />
+	</definition>
+	
+	
+	<definition name="viewProduct" extends="common">
+		<put-attribute name="title" value="View Product" />
+		<put-attribute name="body" value="/WEB-INF/jsp/viewProduct.jsp" />
+	</definition>
+	
+	<definition name="customers" extends="common">
+		<put-attribute name="title" value="View Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customers.jsp" />
+	</definition>
+	
+
+</tiles-definitions>

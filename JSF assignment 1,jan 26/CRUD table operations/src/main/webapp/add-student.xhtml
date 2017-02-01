@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-theme.min.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="signin.css" />
+	<h:outputStylesheet library="css" name="justified-nav.css" />
+	<f:metadata>
+		<f:viewParam name="locale" value="#{test.locale}"></f:viewParam>
+	</f:metadata>
+</h:head>
+<h:body>
+
+	<div class="container">
+		<h2>Student Form</h2>
+
+		<h:form class="form-horizontal">
+			<h2 class="form-signin-heading">Please fill the data</h2>
+
+			<a href="?locale=en" class="btn btn-success">English</a>
+			<a href="?locale=np" class="btn btn-warning">Nepali</a>
+
+			<div class="form-group">
+				<label for="roll" class="col-sm-2 control-label">#{msgs.roll}</label>
+				<div class="col-sm-10">
+					<h:inputText id="roll" required="true"
+						requiredMessage="#{msgs.emptyMsg}"
+						converterMessage="#{msgs.invalidroll}"
+						value="#{test.student.roll}" class="form-control">
+						<f:convertNumber type="number" />
+					</h:inputText>
+
+					<h:message for="roll" />
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">#{msgs.name}</label>
+				<div class="col-sm-10">
+					<h:inputText id="name" required="true"
+						requiredMessage="#{msgs.emptyMsg}"
+						validatorMessage="#{msgs.nameSize}"
+						value="#{test.student.name}" class="form-control">
+						<f:validateLength minimum="4" maximum="20" />
+					</h:inputText>
+
+					<h:message for="name" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="class" class="col-sm-2 control-label">Class</label>
+				<div class="col-sm-10">
+					<h:inputText id="class" required="true"
+						requiredMessage="#{msgs.emptyMsg}"
+						converterMessage="#{msgs.invalidClass}" value="#{test.student.grade}"
+						class="form-control">
+						<f:convertNumber maxIntegerDigits="1" type="number" />
+					</h:inputText>
+					<h:message for="class" />
+				</div>
+			</div>
+
+			<h2>Payment Info</h2>
+			<hr />
+			<div class="form-group">
+				<label for="amount" class="col-sm-2 control-label">Amount</label>
+				<div class="col-sm-10">
+					<h:inputText id="amount" converterMessage="#{msgs.invalidAmount}"
+						value="#{test.student.amount}" class="form-control">
+						<f:convertNumber minFractionDigits="2" />
+
+					</h:inputText>
+					<h:message for="amount" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="creditCard" class="col-sm-2 control-label">CreditCard</label>
+				<div class="col-sm-10">
+					<h:inputText id="creditCard" required="true"
+						requiredMessage="#{msgs.emptyMsg}"
+						validatorMessage="#{msgs.invalidCCard}"
+						value="#{test.student.creditCard}" class="form-control">
+						<f:validateLength minimum="13" />
+					</h:inputText>
+					<h:message for="creditCard" />
+
+				</div>
+			</div>
+			<hr />
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<h:commandButton value="Add Student" action="#{test.addStudent()}"
+						class="btn btn-lg btn-success" />
+
+					<h:commandButton value="reset" type="reset"
+						class="btn btn-lg btn-default" />
+
+					<h:commandButton value="Cancel" action="students"
+						class="btn btn-lg btn-default" immediate="true"/>
+				</div>
+			</div>
+
+
+		</h:form>
+
+	</div>
+
+
+</h:body>
+</html>
