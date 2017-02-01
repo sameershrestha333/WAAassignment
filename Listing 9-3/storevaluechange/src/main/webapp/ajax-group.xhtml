@@ -25,90 +25,69 @@
 		<div class="row main">
 			<div class="panel-heading">
 				<div class="panel-title text-center">
-					<h1 class="title">Please log in</h1>
+					<h1 class="title">Ajax Group Form Demo</h1>
 					<hr />
 				</div>
 			</div>
 			<div class="main-login main-center">
 
-
-				<composite:interface>
-					<composite:attribute name="nameLabel" />
-					<composite:attribute name="nameValue" />
-					<composite:attribute name="passwordLabel" />
-					<composite:attribute name="passwordValue" />
-					<composite:attribute name="loginButtonText" />
-					<composite:attribute name="image" />
-					<composite:attribute name="loginButtonAction"
-						method-signature="java.lang.String action()" />
-				</composite:interface>
-				<composite:implementation>
+				<f:ajax event="click">
 					<h:form class="form-horizontal">
 
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">
-								#{cc.attrs.nameLabel}</label>
+							<label for="userName" class="col-sm-2 control-label">
+								User Name: </label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa"
 										aria-hidden="true"></i></span>
-									<h:inputText validator="#{helloWorld.validateName}"
-										class="form-control" id="name" value="#{cc.attrs.nameValue}"
-										placeholder="Enter your name">
-
-										<f:ajax event="blur" execute="name" render="nameError" />
-
-									</h:inputText>
-									<h:message style="color: red" for="name" id="nameError"></h:message>
-
-
+									<h:inputText id="userName" value="#{helloWorld.userName}"
+										class="form-control" />
 									<span class="input-group-addon"><span
 										class="glyphicon glyphicon-envelope"></span> </span>
 								</div>
 							</div>
 						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-sm-2 control-label">
+								Password: </label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa"
+										aria-hidden="true"></i></span>
+									<h:inputSecret id="password" value="#{helloWorld.password}"
+										class="form-control" />
+									<span class="input-group-addon"><span
+										class="glyphicon glyphicon-envelope"></span> </span>
+								</div>
+							</div>
+						</div>
+
 
 
 
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">
-								#{cc.attrs.passwordLabel}</label>
+
 							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa"
-										aria-hidden="true"></i></span>
-									<h:inputSecret class="form-control" id="password"
-										value="#{cc.attrs.passwordValue}"
-										placeholder="Enter your password" />
-									<span class="input-group-addon"><span
-										class="glyphicon glyphicon-envelope"></span> </span>
-								</div>
+								<h:commandButton value="Say Hello"
+									class="btn btn-info btn-lg btn-block login-button">
+									<f:ajax event="mouseover" execute="userName" render="sayHello" />
+								</h:commandButton>
+
 							</div>
 						</div>
 
-
-
-
-
-
-
 						<div class="form-group ">
-							<h:commandButton class="btn btn-primary btn-lg login-button"
-								action="#{cc.attrs.loginButtonAction}"
-								value="#{cc.attrs.loginButtonText}" />
+							<h2>
+								<h:outputText id="sayHello" value="#{helloWorld.helloMessage}" />
 
-							<h:commandLink class="btn btn-primary btn-lg slogin-button"
-								action="#{cc.attrs.loginButtonAction}">
+							</h2>
 
-								<h:graphicImage url="#{cc.attrs.image}" styleClass="icon" />
-							</h:commandLink>
+
 						</div>
-
-						<hr />
-
-
 					</h:form>
-				</composite:implementation>
+				</f:ajax>
 			</div>
 		</div>
 	</div>
